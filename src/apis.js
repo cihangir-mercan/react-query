@@ -3,6 +3,7 @@ import db from "./db";
 export async function getTexts() {
     return db.table("texts")
         .toCollection()
+        .reverse()
         .sortBy("id");
 }
 
