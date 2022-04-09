@@ -1,10 +1,12 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button} from "@blueprintjs/core";
 import "./AddVoiceText.scss";
 
+const START_RECORD = "Start Recording";
+const STOP_RECORD = "Stop Recording"
 const AddVoiceText = ({setText}) => {
     const [listening, setListening] = useState(false);
-    const [buttonText, setButtonText] = useState("Start recording");
+    const [buttonText, setButtonText] = useState(START_RECORD);
     const [recognition, setRecognition] = useState(null);
 
     useEffect(() => {
@@ -28,43 +30,30 @@ const AddVoiceText = ({setText}) => {
     }
     const stop = () => {
         recognition.stop();
-        setButtonText("Start recording");
+        setButtonText(START_RECORD);
     };
 
     const start = () => {
         recognition.start();
-        setButtonText("Stop recording");
+        setButtonText(STOP_RECORD);
     };
 
     const onResult = event => {
         const result = [];
         for (const res of event.results) {
             const text = res[0].transcript;
-            let isFinal = false;
-            if (res.isFinal) {
-                isFinal = true;
-            }
-
-            result.push({
-                text: text,
-                isFinal
-            });
+            result.push(text);
         }
-
-        const str = result.map(function(elem){
-            return elem.text.trim();
-        }).join("\n");
+        const str = result.join("\n");
         setText(str);
     };
 
-    return <>
-        <Button className="record__voice"
-                icon="record"
-                intent="danger"
-                onClick={handleClick}
-                aria-label="Translate"
-                text={buttonText} />
-    </>;
+    return <Button className="record__voice"
+                   icon="record"
+                   intent="danger"
+                   onClick={handleClick}
+                   aria-label="Translate"
+                   text={buttonText}/>;
 }
 
 export default AddVoiceText;
