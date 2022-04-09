@@ -28,6 +28,7 @@ const AddVoiceText = ({setText}) => {
         listening ? stop() : start();
         setListening(!listening);
     }
+
     const stop = () => {
         recognition.stop();
         setButtonText(START_RECORD);

@@ -1,10 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {useMutation, useQueryClient} from "react-query";
 import {addText} from "../apis";
-import "./AddText.scss";
 import AddVoiceText from "./AddVoiceText";
 import {autoResize, isBlank, translateHelper} from "../utils";
 import {Button} from "@blueprintjs/core";
+import "./AddText.scss";
 
 const AddText = () => {
     const leftTextArea = useRef(null);
@@ -17,13 +17,13 @@ const AddText = () => {
 
     const mutation = useMutation(addText, {
         onSuccess: () => {
-            // refetch
+            // refetch texts
             queryClient.invalidateQueries("texts");
         },
     });
 
     useEffect(() => {
-        // auto resize textareas at text change
+        // auto resize textareas at text change if height becomes too long
         if (leftTextArea && rightTextArea) {
             autoResize(leftTextArea.current, rightTextArea.current);
         }

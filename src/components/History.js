@@ -33,8 +33,8 @@ export default function History() {
                     <tbody>
                     {data.map((item) => (
                         <tr key={item.id}>
-                            <td colSpan={6}><Icon className="table__icon" icon="manually-entered-data"/>{item.text}</td>
-                            <td colSpan={6}><Icon className="table__icon" icon="translate"/>{item.translatedText}</td>
+                            <td><Icon className="table__icon" icon="manually-entered-data"/>{item.text}</td>
+                            <td><Icon className="table__icon" icon="translate"/>{item.translatedText}</td>
                         </tr>
                     ))}
                     </tbody>

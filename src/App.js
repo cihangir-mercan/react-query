@@ -1,6 +1,6 @@
-import "./App.scss";
 import AddText from "./components/AddText";
 import History from "./components/History";
+import "./App.scss";
 
 function App() {
     return (
