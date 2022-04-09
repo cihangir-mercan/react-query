@@ -3,7 +3,7 @@ import {useMutation, useQueryClient} from "react-query";
 import {addText} from "../apis";
 import "./AddText.scss";
 import AddVoiceText from "./AddVoiceText";
-import {autoResize, translateHelper} from "../utils";
+import {autoResize, isBlank, translateHelper} from "../utils";
 import {Button} from "@blueprintjs/core";
 
 const AddText = () => {
@@ -31,6 +31,10 @@ const AddText = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (isBlank(text)) {
+            return;
+        }
 
         setTranslationLoading(true)
         translateHelper(text).then(translatedText => {

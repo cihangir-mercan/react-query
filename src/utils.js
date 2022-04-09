@@ -32,3 +32,7 @@ export const autoResize = (leftTextArea, rightTextArea) => {
     rightTextArea.style.height = "auto";
     rightTextArea.style.height = (leftTextArea.scrollHeight) + "px";
 }
+
+export const isBlank = (str) => {
+    return (!str || /^\s*$/.test(str));
+}
