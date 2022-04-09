@@ -1,0 +1,35 @@
+@import '../mixins.scss';
+
+.nodata__icon {
+  margin-top: 8px;
+
+  & > svg:not([fill]) {
+    fill: rgba(95,107,124,.6);
+  }
+}
+
+.history__table {
+  width: 100%;
+  padding-bottom: 16px;
+
+  tr {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include responsive_mobile() {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    td {
+      box-shadow: none !important;
+    }
+  }
+
+  .table__icon {
+    margin-right: 8px;
+
+    @include responsive_desktop() {
+      display: none;
+    }
+  }
+}

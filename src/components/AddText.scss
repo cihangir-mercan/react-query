@@ -1,0 +1,47 @@
+@import '../mixins.scss';
+
+.translate__wrapper {
+
+  .translate__form {
+    position: relative;
+    display: flex;
+
+    @include responsive_mobile() {
+      flex-direction: column;
+    }
+
+    button[type="submit"] {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    textarea {
+      resize: none;
+      flex-grow: 1;
+      white-space: pre-line;
+
+
+      @include responsive_desktop() {
+        &.left__textarea {
+          padding-right: 32px;
+        }
+        &.right__textarea {
+          padding-left: 32px;
+          cursor: text;
+          color: #121212;
+        }
+      }
+
+      @include responsive_mobile() {
+        &.left__textarea {
+          padding-bottom: 32px;
+        }
+        &.right__textarea {
+          padding-top: 32px;
+        }
+      }
+    }
+  }
+}

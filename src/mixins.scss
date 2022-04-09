@@ -1,0 +1,11 @@
+@mixin responsive_mobile() {
+  @media only screen and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin responsive_desktop() {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
