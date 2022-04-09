@@ -44,7 +44,7 @@ const AddVoiceText = ({setText}) => {
             const text = res[0].transcript;
             result.push(text);
         }
-        const str = result.map(s => s.trim()).join("\n");
+        const str = result.map(s => s.trim()).filter(Boolean).join("\n");
         setText(str);
     };
 
