@@ -1,4 +1,4 @@
-const API_KEY = process.env.GOOGLE_API_KEY;
+const API_KEY = process.env.API_KEY;
 const FROM_LANG = 'en';
 const TO_LANG = 'tr';
 let BASE_URL = `https://translation.googleapis.com/language/translate/v2?format=text&key=${API_KEY}`;
