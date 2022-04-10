@@ -10,11 +10,16 @@
       flex-direction: column;
     }
 
-    button[type="submit"] {
+    .bp4-spinner {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      display: none;
+
+      &.visible {
+        display: block;
+      }
     }
 
     textarea {
@@ -40,6 +45,7 @@
         }
         &.right__textarea {
           padding-top: 32px;
+          color: #121212;
         }
       }
     }
