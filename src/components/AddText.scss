@@ -27,26 +27,9 @@
       flex-grow: 1;
       white-space: pre-line;
 
-
-      @include responsive_desktop() {
-        &.left__textarea {
-          padding-right: 32px;
-        }
-        &.right__textarea {
-          padding-left: 32px;
-          cursor: text;
-          color: #121212;
-        }
-      }
-
-      @include responsive_mobile() {
-        &.left__textarea {
-          padding-bottom: 32px;
-        }
-        &.right__textarea {
-          padding-top: 32px;
-          color: #121212;
-        }
+      &.right__textarea {
+        cursor: text;
+        color: #121212;
       }
     }
   }
